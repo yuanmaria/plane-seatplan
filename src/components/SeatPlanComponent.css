@@ -1,0 +1,44 @@
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seat {
+    width: 2.5rem;
+    height: 2rem;
+    margin: 0.25rem;
+    color: #333;
+    border-radius: 0.25rem;
+}
+
+.first {
+    border: 1px solid #4D4D4D;
+    background-color: #99BC85;
+}
+
+.first.occupied {
+    background-color: #900C3F;
+}
+
+.business {
+    border: 1px solid #4D4D4D;
+    background-color: #BFD8AF;
+}
+
+.business.occupied {
+    background-color: #C70039;
+}
+
+.economy {
+    border: 1px solid #4D4D4D;
+    background-color: #D4E7C5;
+}
+
+.economy.occupied {
+    background-color: #FF5733;
+}
+
+.selected {
+    background-color: #FFC300;
+}
