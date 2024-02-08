@@ -5,7 +5,7 @@ import { SeatPopupComponent } from "./SeatPopupComponent/SeatPopupComponent";
 import { SeatComponent } from "./SeatComponent/SeatComponent";
 
 export const SeatPlanComponent = () => {
-  const { seatPlan, selectedSeat , updateItem} = useContext(SeatPlanContext);
+  const { seatPlan, selectedSeat , updateItem, updateItemApi} = useContext(SeatPlanContext);
   const [showPopup, setShowPopup] = useState(null);
 
   const handleClosePopup = (e) => {
@@ -14,7 +14,7 @@ export const SeatPlanComponent = () => {
   };
 
   const handleBookSeat = () => {
-    updateItem(selectedSeat.id);
+    updateItemApi(selectedSeat.id);
   }
 
   return (

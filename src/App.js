@@ -4,10 +4,11 @@ import { SeatPlanContext } from "./SeatPlanContext";
 import { SeatPlanComponent } from "./components/SeatPlanComponent";
 
 function App() {
-  const { getSeatPlan, loading } = useContext(SeatPlanContext);
+  const { getSeatPlan, getSeatPlanApi, loading } = useContext(SeatPlanContext);
 
   useEffect(() => {
-    getSeatPlan();
+    // getSeatPlan();
+    getSeatPlanApi();
   }, []);
 
   return (
