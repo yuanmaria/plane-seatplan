@@ -1,17 +1,4 @@
-const seatMap = {
-    'first': {'A':0, 'D':4, 'G':5, 'J':9},
-    'business': {'A':0, 'C':1,'D':4, 'E':5, 'G':6, 'H':9, 'J':10},
-    'premium economy': {'A':0, 'C':1,'D':4, 'E':5, 'F':6,'G':7, 'H':10, 'J':11},
-    'economy': {'A':0, 'B':1, 'C':2,'D':4, 'E':5, 'F':6,'G':7, 'H':9, 'J':10, 'K': 11}
-}
-const leftExit = {
-    "class": "exit left",
-    "seat_number": "Exit"
-};
-const rightExit = {
-    "class": "exit right",
-    "seat_number": "Exit"
-};
+import { leftExit, rightExit, seatMap } from "../constants/SeatPlanConstant";
 
 export const initSeatPlan = () => {
     //assume seat row 55
@@ -19,7 +6,7 @@ export const initSeatPlan = () => {
     const first = Array.from(Array(2), () => new Array(10).fill(null));
     const business = Array.from(Array(10), () => new Array(11).fill(null));
     const economy = Array.from(Array(46), () => new Array(12).fill(null));
-    
+
     //mapping exit
     business[1][0] = leftExit;
     business[1][10] = rightExit;

@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
-import { supabase } from "./supabaseClient";
-import { initSeatPlan, mapSeatPlan } from "./utils/SeatPlanUtils";
+import { supabase } from "../supabaseClient";
+import { initSeatPlan, mapSeatPlan } from "../utils/SeatPlanUtils";
 
 // Initializing context
 export const SeatPlanContext = createContext();
@@ -10,6 +10,7 @@ export function SeatPlanContextProvider({ children }) {
   const [selectedSeat, setSelectedSeat] = useState({});
   const [loading, setLoading] = useState(false);
 
+  //use REST API to get data
   const getSeatPlanApi = async () => {
     setLoading(true);
     try {
@@ -30,8 +31,8 @@ export function SeatPlanContextProvider({ children }) {
     }
   };
 
+  //use REST API to update data
   const updateItemApi = async (id) => {
-    setLoading(true);
     try {
       await fetch(
         `${process.env.REACT_APP_API_URL}/rest/v1/seats?id=eq.${id}`,
@@ -54,15 +55,12 @@ export function SeatPlanContextProvider({ children }) {
               return response.json();
           }
       })
-        // .then((response) => response.json())
-        .then(async (data) => {
+        .then((data) => {
           if (data.message) {
             alert(data.message);
           } else {
-            await getSeatPlan();
-            setSelectedSeat({});
-            setLoading(false);
             alert("You have successfully book a seat");
+            setSelectedSeat({});
           }
         })
         .catch((err) => {
@@ -71,11 +69,11 @@ export function SeatPlanContextProvider({ children }) {
     } catch (error) {
       alert(error.error_description || error.message);
     } finally {
-      setLoading(false);
+      await getSeatPlan();
     }
   };
 
-  // get all seat plan
+  // get all seat plan wiht supabase-js
   const getSeatPlan = async () => {
     setLoading(true);
     try {
@@ -94,7 +92,7 @@ export function SeatPlanContextProvider({ children }) {
     }
   };
 
-  // update seats status on the database
+  // update seats status on the database with supabase-js
   const updateItem = async (id) => {
     setLoading(true);
     try {
@@ -115,18 +113,13 @@ export function SeatPlanContextProvider({ children }) {
     }
   };
 
-  const selectSeat = (id) => {
-    setSelectedSeat(id);
-  };
-
   return (
     <SeatPlanContext.Provider
       value={{
         seatPlan,
         selectedSeat,
         loading,
-        selectSeat,
-        setSeatPlan,
+        setSelectedSeat,
         getSeatPlan,
         updateItem,
         getSeatPlanApi,

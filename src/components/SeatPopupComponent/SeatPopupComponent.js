@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './SeatPopupComponent.css';
-import { SeatPlanContext } from '../../SeatPlanContext';
+import { SeatPlanContext } from '../../contexts/SeatPlanContext';
 
 export const SeatPopupComponent = (props) => {
     const {onClosePopup, selectedSeat} = props

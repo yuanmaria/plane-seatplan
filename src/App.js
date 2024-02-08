@@ -1,6 +1,6 @@
 import "./App.css";
 import { useContext, useEffect } from "react";
-import { SeatPlanContext } from "./SeatPlanContext";
+import { SeatPlanContext } from "./contexts/SeatPlanContext";
 import { SeatPlanComponent } from "./components/SeatPlanComponent";
 
 function App() {

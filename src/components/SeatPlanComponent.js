@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { SeatPlanContext } from "../SeatPlanContext";
+import { SeatPlanContext } from "../contexts/SeatPlanContext";
 import "./SeatPlanComponent.css";
 import { SeatPopupComponent } from "./SeatPopupComponent/SeatPopupComponent";
 import { SeatComponent } from "./SeatComponent/SeatComponent";
