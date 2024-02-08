@@ -50,12 +50,6 @@ export const SeatPlanComponent = () => {
             </div>
         </div>
       </div>
-      <div className="footer">
-        <div className="footer-container">
-        <div className="summary">{`Selected Seat : ${selectedSeat.class || ''} ${selectedSeat.seat_number || '-'}`}</div>
-        <button className="book" disabled={!selectedSeat.id} onClick={handleBookSeat}>Book Seat</button>
-        </div>
-      </div>
       {showPopup && (
         <SeatPopupComponent
           onClosePopup={handleClosePopup}

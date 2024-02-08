@@ -6,7 +6,7 @@
 
 .seat-plan {
   flex: 1;
-  padding-bottom: 5rem;
+  padding-bottom: 2rem;
   .row {
     display: flex;
     align-items: center;
@@ -96,43 +96,6 @@
   border-right: solid 2px #fc0000;
 }
 
-.footer {
-  box-shadow: 0 0px 5px 3px #bbb9b9;
-  background-color: #fff;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  .summary {
-    flex: 1;
-  }
-
-  .footer-container {
-    display: flex;
-    gap: 1rem;
-    text-align: left;
-    align-items: center;
-    padding: 1rem;
-  }
-}
-
-.book {
-  border: none;
-  background-color: #2595be;
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 700;
-  padding: 0.75rem;
-  line-height: 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  height: fit-content;
-  &:disabled {
-    background-color: #afafaf;
-    cursor: not-allowed;
-  }
-}
-
 @media (max-width: 900px) {
   .container {
     flex-direction: column-reverse;
@@ -154,16 +117,6 @@
         line-height: 0.5rem;
       }
     }
-  }
-  .footer-container {
-    padding: 0.5rem;
-  }
-
-  .book {
-    font-size: 0.75rem;
-    font-weight: 600;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
   }
 
   .seat {
