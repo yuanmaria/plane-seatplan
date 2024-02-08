@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Plane Seat Plan Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome Plane Seat Plan Website repository! This React application allows users to visualize and interact with the seating layout of a plane, similar to an online booking travel website.
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+You can access the demo of this website from [HERE](https://plane-seatplan-yuanmarias-projects.vercel.app)
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. **Passenger Seats:**
+   - Seats are displayed with three different colors based on the "occupied" flag:
+     - Red: Indicates that the seat has been occupied by another passenger (`occupied = true`).
+     - Yellow: Indicates that the seat is currently selected (`occupied = false`).
+     - Green: Indicates that the seat is still available (`occupied = false`).
+   - Clicking on a seat triggers different actions:
+     - Red Seat: Opens a popup displaying information about the occupied seat.
+     - Green Seat: Turns the seat yellow, displaying popup information about the seat (price, class, seat number), including an action button to book the seat.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. **Exit Door:** 
+   - Visual representation of the exit door.
 
-### `npm test`
+3. **Aisle:**
+   - Provides a clear path for people to pass by.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+To get a local copy of this project up and running, follow these steps:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone this repository:
+   `git clone https://github.com/yuanmaria/plane-seatplan.git`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Navigate into the project directory:
+   `cd plane-seatplan`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Install dependencies:
+   `npm install`
 
-### `npm run eject`
+4. Start the development server:
+   `npm start`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Technologies Used
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React
+- HTML/CSS
+- JavaScript
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Contributing
 
-## Learn More
+If you'd like to contribute to this project, please follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Create a new Pull Request.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach out if you have any questions or feedback! Happy coding! 🚀🛫
