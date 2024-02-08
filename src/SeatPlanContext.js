@@ -7,7 +7,7 @@ export const SeatPlanContext = createContext();
 
 export function SeatPlanContextProvider({ children }) {
   const [seatPlan, setSeatPlan] = useState(initSeatPlan());
-  const [selectedSeat, setSelectedSeat] = useState('');
+  const [selectedSeat, setSelectedSeat] = useState({});
   const [loading, setLoading] = useState(false);
 
   // get all seat plan
@@ -32,13 +32,13 @@ export function SeatPlanContextProvider({ children }) {
   };
 
   // update seats status on the database
-  const updateItem = async ({ item, id }) => {
+  const updateItem = async (id) => {
     setLoading(true);
     try {
 
       const { error } = await supabase
         .from("seats")
-        .update({ item })
+        .update({occupied: true})
         .eq("id", id); //matching id of row to update
 
       if (error) throw error;
@@ -48,14 +48,14 @@ export function SeatPlanContextProvider({ children }) {
       alert(error.error_description || error.message);
     } finally {
       setLoading(false);
+      setSelectedSeat({});
+      alert("You have successfully book a seat")
     }
   };
 
   const selectSeat = (id) => {
-    console.log('selectSeat', id)
     setSelectedSeat(id);
   }
-
 
   return (
     <SeatPlanContext.Provider

@@ -1,37 +1,67 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SeatPlanContext } from "../SeatPlanContext";
 import "./SeatPlanComponent.css";
+import { SeatPopupComponent } from "./SeatPopupComponent/SeatPopupComponent";
+import { SeatComponent } from "./SeatComponent/SeatComponent";
 
 export const SeatPlanComponent = () => {
-  const { seatPlan, selectSeat, selectedSeat } = useContext(SeatPlanContext);
+  const { seatPlan, selectedSeat , updateItem} = useContext(SeatPlanContext);
+  const [showPopup, setShowPopup] = useState(null);
 
-  console.log(selectedSeat);
-  const renderSeatPlan = (row) => {
-    return (
-      <div className="row">
-        {row.map((seat) => {
-          return renderSeat(seat);
-        })}
+  const handleClosePopup = (e) => {
+    e.stopPropagation();
+    setShowPopup(null);
+  };
+
+  const handleBookSeat = () => {
+    updateItem(selectedSeat.id);
+  }
+
+  return (
+    <>
+      <div className="container">
+        <div className="seat-plan">
+          {seatPlan.map((row, index) => {
+            return (
+              <div key={`row-${index + 1}`} className="row">
+                {row.map((seat, index) => {
+                  return (
+                    <SeatComponent
+                      key={index}
+                      seat={seat}
+                      setShowPopup={(val) => setShowPopup(val)}
+                    />
+                  );
+                })}
+              </div>
+            );
+          })}
+        </div>
+        <div className="side-panel">
+            <div className="legend-container">
+                Legend :
+                <div className="legend-content"><div className="legend-item seat first"></div>First Class</div>
+                <div className="legend-content"><div className="legend-item seat business"></div>Business Class</div>
+                <div className="legend-content"><div className="legend-item seat premium-economy"></div>Premium Economy Class</div>
+                <div className="legend-content"><div className="legend-item seat economy"></div>Economy Class</div>
+                <div className="legend-content"><div className="legend-item seat occupied"></div>Occupied</div>
+                <div className="legend-content"><div className="legend-item seat selected"></div>Selected Seat</div>
+                <div className="legend-content"><div className="legend-item exit left">{" Exit"}</div>Exit</div>
+            </div>
+        </div>
       </div>
-    );
-  };
-
-  const renderSeat = (seat) => {
-    if (!seat) return <div className="seat"></div>;
-    return (
-      <button
-        className={`seat ${seat.class} ${seat.occupied ? "occupied" : ""} ${
-          seat.id === selectedSeat ? "selected" : ""
-        }`}
-        disabled={seat.occupied}
-        onClick={() => selectSeat(seat.id)}
-      >
-        {seat.seat_number}
-      </button>
-    );
-  };
-
-  return seatPlan.map((row) => {
-    return renderSeatPlan(row);
-  });
+      <div className="footer">
+        <div className="footer-container">
+        <div className="summary">{`Selected Seat : ${selectedSeat.class || ''} ${selectedSeat.seat_number || '-'}`}</div>
+        <button className="book" disabled={!selectedSeat.id} onClick={handleBookSeat}>Book Seat</button>
+        </div>
+      </div>
+      {showPopup && (
+        <SeatPopupComponent
+          onClosePopup={handleClosePopup}
+          selectedSeat={showPopup}
+        />
+      )}
+    </>
+  );
 };
